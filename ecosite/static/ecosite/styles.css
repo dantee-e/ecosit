@@ -1,0 +1,62 @@
+@font-face {
+    font-family: Aileron;
+    src: url("../fonts/aileron.regular.otf");
+}
+@font-face {
+    font-family: Aileron-bold;
+    src: url("../fonts/aileron.bold.otf");
+}
+
+@font-face {
+    font-family: Sofia;
+    src: url(https://fonts.googleapis.com/css?family=Sofia);
+}
+
+.row {
+    margin: auto;
+}
+.col {
+    border-radius: 50px;
+    background-color: #F4FCB8;
+    padding: 1%;
+    margin: 1%;
+}
+
+body {
+    font-family: Aileron, Arial, Helvetica, sans-serif;
+    background-color: #95A868;
+}
+.espaco {
+    margin: 5%;
+}
+h1 {
+    font-size: 400%;
+    color: #FFFFFF;
+    font-family: Aileron-bold, Arial, Helvetica, sans-serif;
+}
+h4 {
+    color: #452C18;
+    font-family: Aileron-bold, Arial, Helvetica, sans-serif;
+
+}
+h3 {
+    margin-left: 5%;
+}
+
+.produtos {
+    border-radius: 25px;
+    background-color: #F4FCB8;
+    padding: 1%;
+    margin: 1%;
+    width: 20%;
+}
+
+.imagem-prod-div {
+    text-align: center;
+}
+
+.imagem-prod {
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+}
