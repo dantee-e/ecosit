@@ -21,7 +21,7 @@ class Produto(models.Model):
 
 class Imagem(models.Model):
     img = models.CharField(max_length=200, default='')
-    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE, related_name="imagem")
     def __str__(self):
         return f"Imagem do produto {self.produto}"
  
