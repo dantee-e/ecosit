@@ -1,0 +1,23 @@
+{% extends "ecosite/layout.html" %}
+{% load static %}
+
+{% block head %}
+<title>Adicionar produtos</title>
+{% endblock %}
+
+{% block body %}
+<h1 style="margin-left: 2%;">Adicionar Produto</h1>
+
+<form action="" method="post" style="margin-left: 2%;">
+    {% csrf_token %}
+    {% for entry in formprod %}
+        <div class="form-label">
+            {{ entry.label_tag }}
+        </div>
+        <div class="form-entry">
+            {{ entry }}
+        </div>
+    {% endfor %}
+    <button class="submit-button" type="submit">Adicionar</button>
+</form>
+{% endblock %}

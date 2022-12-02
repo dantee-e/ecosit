@@ -1,0 +1,23 @@
+{% extends "ecosite/layout.html" %}
+{% load static %}
+
+{% block head %}
+<title>Criar Conta</title>
+{% endblock %}
+
+{% block body %}
+<h1 style="margin-left: 2%;">Login</h1>
+
+<form action="" method="post" style="margin-left: 2%;">
+    {% csrf_token %}
+    {% for i in form %}
+        <div class="form-label">
+            {{ i.label_tag }}
+        </div>
+        <div class="form-entry">
+            {{ i }}
+        </div>
+    {% endfor %}
+    <button class="submit-button" type="submit">Submeter</button>
+</form>
+{% endblock %}

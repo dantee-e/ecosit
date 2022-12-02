@@ -14,7 +14,7 @@
             <div class="col text-center">Nossa Causa</div>
             <div class="col text-center">Parceiros</div>
             <div class="col text-center">Sugest&otilde;es</div>
-            <div class="col text-center"><a href="{% url 'login' %}">Login</a></div>
+            <div class="col text-center"><a href="{% url 'logout' %}">Log out</a></div>
         </div>
     </div>
 
@@ -24,19 +24,7 @@
     <h1 class="text-center" aria-setsize="4%">Compre a Briga</h1>
     <h4 class="text-center">Por um mundo mais sustent&aacute;vel</h4>
     <div class="espaco"></div>
-    <h3>Confira nossos produtos!</h3>
-    <div class="container-fluid">
-        <div class="row" style="margin-left: 5%;">
-
-            {% for i in produtos %}
-            <div class="produtos">
-                {% if i.2 %}
-                <div class="imagem-prod-div"><img class="imagem-prod" src="{{ i.2 }}" alt="{{ i.2 }}"></div>
-                {% endif %}
-                <div class="text-center">{{ i.0 }}</div>
-                <div class="text-center">R${{ i.1 }}</div>
-            </div>
-            {% endfor %}
-        </div>
+    <div>
+        Bem vindo, {{ request.user.first_name }} {{ request.user.last_name }}
     </div>
 {% endblock %}

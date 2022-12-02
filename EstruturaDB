@@ -1,0 +1,10 @@
+usuario --> email, Nome, Sobrenome, celular, telefone, is_proprietario(default=0)
+endereco_usuario_comprador --> usuario_comprador(ForeignKey), endereco, CEP
+
+
+
+empresas --> usuario(ForeignKey), endereco, CEP, contato, CNPJ, avaliacao
+produtos --> empresa(ForeignKey), nome, preco, home, descricao, avaliacao, qnt_max, quantidade_estoque
+ 
+
+Imagem --> usuario(ForeignKey)
