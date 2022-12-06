@@ -8,13 +8,13 @@
 {% endblock %}
     
 {% block body %}
-    <div class="container-fluid">
+    <div class="container-flex">
         <div class="row">
             
             <div class="col text-center">Nossa Causa</div>
             <div class="col text-center">Parceiros</div>
             <div class="col text-center">Sugest&otilde;es</div>
-            <div class="col text-center"><a href="{% url 'login' %}">Login</a></div>
+            <div class="col text-center"><a href="{% url 'login' %}">Login</a>/<a href="{% url 'criar_user' %}">Criar Usu&aacute;rio</a></div>
         </div>
     </div>
 

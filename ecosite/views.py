@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from ecosite.models import Produto, Imagem, Empresa
-from ecosite.forms import ProdutoForm, ImagemForm, NovoUsuarioForm
+from ecosite.forms import ProdutoForm, ImagemForm, NovoUsuarioForm, NovaEmpresaForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
@@ -10,7 +10,7 @@ from django.urls import reverse
 # Create your views here.
 
 
-def index(request):
+def index_render(request, alert_logado):
     produtos=[]
     for i in Produto.objects.filter(home=1):
         try:
@@ -19,19 +19,21 @@ def index(request):
             imag = 0
         produtos.append([i.nome, i.preco, imag])
     if request.user.is_authenticated:
-        if request.user.is_proprietario:
-            return HttpResponse('proprietario')
-        else:
-            return HttpResponse('n proprietario')
         return render(request, "ecosite/index_autenticado.html", {
             "produtos": produtos,
             "message": 'Usuario autenticado',
+            "recem_logado": alert_logado,
+            "is_proprietario": request.user.is_proprietario,
         })
+        
     else:
         return render(request, "ecosite/index.html", {
             "produtos": produtos,
             "message": 'Usuario nao autenticado',
         })
+
+def index(request):
+    return index_render(request, False)
 
 
 def criar_usuario(request):
@@ -40,16 +42,19 @@ def criar_usuario(request):
         form = NovoUsuarioForm(request.POST)
         if form.is_valid():
             form.save()
+            user = authenticate(request, username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
+            return index_render(request, True)
     return render(request, 'ecosite/criar_usuario.html', {
         'form':form
     })
 
 
-def addprod(request, nome_empresa):
+def addprod(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     formprod = ProdutoForm()
-    empresa = Empresa.objects.get(nome=nome_empresa)
+    #empresa = Empresa.objects.get(nome=nome_empresa)
+    empresa = Empresa.objects.get(proprietario=user)
     if request.method=='POST':
         formprod = ProdutoForm(request.POST)
         if formprod.is_valid():
@@ -77,7 +82,11 @@ def addimg(request, nome_empresa):
         'form': form
     })
             
-
+def area_emp(request):
+    empresa = Empresa.objects.get(proprietario=request.user)
+    return render(request, 'ecosite/area_empresa.html', {
+        "empresa": empresa,
+    })
 
 def login_view(request):
     if request.method == 'POST':
@@ -86,7 +95,7 @@ def login_view(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('index'))
+            return index_render(request, True)
         else:
             return render(request, 'ecosite/login.html', {
                 'message': 'Credenciais invalidas'
@@ -95,15 +104,15 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, 'ecosite/login.html')
+    return HttpResponseRedirect(reverse('index'))
 
 def criar_empresa(request):
-    form = NovoUsuarioForm()
+    form = NovaEmpresaForm()
     if request.method == 'POST':
         form = NovoUsuarioForm(request.POST)
-        print(form.errors)
-        if form.is_valid():
-            form.save()
+        if form.is_vaalid():
+            obj = form.save()
+            obj.proprietario = request.user
             return HttpResponseRedirect('')
         
     return render(request, 'ecosite/criar_empresa.html', {

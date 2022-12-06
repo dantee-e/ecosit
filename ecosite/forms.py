@@ -22,9 +22,8 @@ class NovoUsuarioForm(UserCreationForm):
         model = Usuario
         fields = ['email', 'first_name', 'last_name', 'celular', 'password1', 'password2']
 
-"""
-class NovaEmpresaform(ModelForm):
+
+class NovaEmpresaForm(ModelForm):
     class Meta:
         model = Empresa
         fields = ('CNPJ', 'nome', 'telefone', 'email')
-"""

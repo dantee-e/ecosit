@@ -15,6 +15,9 @@
             <div class="col text-center">Parceiros</div>
             <div class="col text-center">Sugest&otilde;es</div>
             <div class="col text-center"><a href="{% url 'logout' %}">Log out</a></div>
+            {% if is_proprietario %}
+            <div class="col text-center"><a href="{% url 'area_emp' %}">Area da Empresa</a></div>
+            {% endif %}
         </div>
     </div>
 
@@ -24,7 +27,10 @@
     <h1 class="text-center" aria-setsize="4%">Compre a Briga</h1>
     <h4 class="text-center">Por um mundo mais sustent&aacute;vel</h4>
     <div class="espaco"></div>
-    <div>
-        Bem vindo, {{ request.user.first_name }} {{ request.user.last_name }}
-    </div>
+
+    {% if recem_logado %}
+    <script>
+        alert('Usuario autenticado');
+    </script>
+    {% endif %}
 {% endblock %}
