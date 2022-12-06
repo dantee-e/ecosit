@@ -6,5 +6,27 @@
 
 
 {% block body %}
-<h1 style="margin:2%;">{{ empresa.nome }}</h1>
+<div class="row">
+    <h1 class="margem-left">{{ empresa.nome }}</h1>
+    <h3><a href="{% url 'index' %}">Retornar</a></h3>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">CNPJ</div>
+        <div class="col">{{ empresa.CNPJ }}</div>
+        <div class="col text-center">Alterar</div>
+    </div>
+    <div class="row">
+        <div class="col">Telefone</div>
+        <div class="col">{{ empresa.telefone }}</div>
+        <div class="col text-center">Alterar</div>
+    </div>
+    <div class="row">
+        <div class="col">email</div>
+        <div class="col">{{ empresa.email }}</div>
+        <div class="col text-center">Alterar</div>
+    </div>
+</div>
 {% endblock %}
