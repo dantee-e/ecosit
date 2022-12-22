@@ -20,6 +20,7 @@ def index_render(request, alert_logado):
         produtos.append([i.nome, i.preco, imag])
     if request.user.is_authenticated:
         return render(request, "ecosite/index_autenticado.html", {
+            
             "produtos": produtos,
             "message": 'Usuario autenticado',
             "recem_logado": alert_logado,
@@ -29,7 +30,6 @@ def index_render(request, alert_logado):
     else:
         return render(request, "ecosite/index.html", {
             "produtos": produtos,
-            "message": 'Usuario nao autenticado',
         })
 
 def index(request):
@@ -43,6 +43,7 @@ def criar_usuario(request):
         if form.is_valid():
             form.save()
             user = authenticate(request, username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
+            login(request, user)
             return index_render(request, True)
     return render(request, 'ecosite/criar_usuario.html', {
         'form':form
@@ -84,8 +85,11 @@ def addimg(request, nome_empresa):
             
 def area_emp(request):
     empresa = Empresa.objects.get(proprietario=request.user)
+    produtos = Produto.objects.filter(loja=empresa)
     return render(request, 'ecosite/area_empresa.html', {
         "empresa": empresa,
+        "produtos": produtos,
+        
     })
 
 def login_view(request):

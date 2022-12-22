@@ -7,26 +7,43 @@
 
 {% block body %}
 <div class="row">
-    <h1 class="margem-left">{{ empresa.nome }}</h1>
-    <h3><a href="{% url 'index' %}">Retornar</a></h3>
+    <h1 class="col-5">{{ empresa.nome }}</h1>
+    <h3 class="text-center col-2" id="retornar"><a href="{% url 'index' %}">Retornar</a></h3>
+    <div class="col-2"></div>
 </div>
 
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col">CNPJ</div>
-        <div class="col">{{ empresa.CNPJ }}</div>
-        <div class="col text-center">Alterar</div>
+        <div class="col-3 options">CNPJ</div>
+        <div class="col-3 options">{{ empresa.CNPJ }}</div>
+        <div class="col-3 options text-center">Alterar</div>
     </div>
     <div class="row">
-        <div class="col">Telefone</div>
-        <div class="col">{{ empresa.telefone }}</div>
-        <div class="col text-center">Alterar</div>
+        <div class="col-3 options">Telefone</div>
+        <div class="col-3 options">{{ empresa.telefone }}</div>
+        <div class="col-3 options text-center">Alterar</div>
     </div>
     <div class="row">
-        <div class="col">email</div>
-        <div class="col">{{ empresa.email }}</div>
-        <div class="col text-center">Alterar</div>
+        <div class="col-3 options">email</div>
+        <div class="col-3 options">{{ empresa.email }}</div>
+        <div class="col-3 options text-center">Alterar</div>
     </div>
 </div>
+<div class="espaco"></div>
+<h3>Produtos</h3>
+
+{% for produto in produtos %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5 options">Nome: {{ produto.nome }}</div>
+        <div class="col-4 options">Pre&ccedil;o: {{ produto.preco }}</div>
+    </div>
+
+    <div class="row"></div>
+        <div class="col-9 options">{{ produto.descricao }}</div>
+        
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

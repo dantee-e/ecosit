@@ -11,12 +11,12 @@
     <div class="container-fluid">
         <div class="row">
             
-            <div class="col text-center">Nossa Causa</div>
-            <div class="col text-center">Parceiros</div>
-            <div class="col text-center">Sugest&otilde;es</div>
-            <div class="col text-center"><a href="{% url 'logout' %}">Log out</a></div>
+            <div class="options col text-center">Nossa Causa</div>
+            <div class="options col text-center">Parceiros</div>
+            <div class="options col text-center">Sugest&otilde;es</div>
+            <div class="options col text-center"><a href="{% url 'logout' %}">Log out</a></div>
             {% if is_proprietario %}
-            <div class="col text-center"><a href="{% url 'area_emp' %}">Area da Empresa</a></div>
+            <div class="options col text-center"><a href="{% url 'area_emp' %}">Area da Empresa</a></div>
             {% endif %}
         </div>
     </div>

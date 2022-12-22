@@ -1,0 +1,41 @@
+[33mcommit ac8f8be89ec2cf82bcb639775fbefb7b9fe71969[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: dantee-e <ramacciotti.dante@gmail.com>
+Date:   Tue Dec 6 01:47:35 2022 -0300
+
+    mudancas na area da empresa e templates um pouco alterados
+
+[33mcommit 725e7aacf885e2fa3cf7cdb90decf3c3393d5a0d[m
+Author: Dante Ramacciotti <dante@pop-os.localdomain>
+Date:   Tue Dec 6 00:48:37 2022 -0300
+
+    area da empresa criada (sem conteudo)
+
+[33mcommit 428b45aaab0a6455916313d2c47b753363ee5cde[m
+Author: Dante Ramacciotti <dante@pop-os.localdomain>
+Date:   Fri Dec 2 01:54:55 2022 -0300
+
+    Login e Criacao de Usuario funcional
+
+[33mcommit 156bbaeaaa358ec59d58449b76921a3b9ca36098[m
+Author: Dante Ramacciotti <dante@pop-os.localdomain>
+Date:   Sat Nov 26 13:42:40 2022 -0300
+
+    Melhora Imagens Home
+
+[33mcommit 4cf075d06123402644102f335589e97f9e45f779[m
+Author: Dante Ramacciotti <dante@pop-os.localdomain>
+Date:   Sat Nov 26 13:41:52 2022 -0300
+
+    Melhora Imagens Home
+
+[33mcommit f7ae2702064c962a9820f36fe0e43c751e7ba362[m[33m ([m[1;32mmudanca_img[m[33m)[m
+Author: Dante Ramacciotti <dante@pop-os.localdomain>
+Date:   Sat Nov 26 13:24:57 2022 -0300
+
+    Menu com Imagens
+
+[33mcommit 462f1ac6ede6c54c479f31810fcdc335015cd877[m
+Author: Dante Ramacciotti <dante@pop-os.localdomain>
+Date:   Fri Nov 25 14:20:23 2022 -0300
+
+    First Commit
