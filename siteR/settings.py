@@ -131,8 +131,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+MEDIA_URL = '/uploads/'
+
+MEDIA_ROOT = '/home/dantee5/ecosit/ecosite/static/images/'
 
 AUTH_USER_MODEL = 'ecosite.Usuario'
 STATIC_ROOT = "/home/dantee5/ecosit/ecosite/static/"
