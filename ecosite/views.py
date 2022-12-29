@@ -16,8 +16,8 @@ def index_render(request, alert_logado):
         try:
             imag = Imagem.objects.filter(produto=i)[0].img
         except:
-            imag = 0
-        produtos.append([i.nome, i.preco, imag])
+            continue
+        produtos.append([i.nome, i.preco, imag, i.descricao])
     if request.user.is_authenticated:
         return render(request, "ecosite/index_autenticado.html", {
             
@@ -28,13 +28,12 @@ def index_render(request, alert_logado):
         })
         
     else:
-        return render(request, "ecosite/index.html", {
+        return render(request, "ecosite/index_novo.html", {
             "produtos": produtos,
         })
 
 def index(request):
     return index_render(request, False)
-
 
 def criar_usuario(request):
     form = NovoUsuarioForm()
@@ -48,7 +47,6 @@ def criar_usuario(request):
     return render(request, 'ecosite/criar_usuario.html', {
         'form':form
     })
-
 
 def addprod(request):
     if not request.user.is_authenticated:
