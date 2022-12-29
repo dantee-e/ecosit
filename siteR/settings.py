@@ -21,12 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5ylgu(rc&%x#1dbowpxd@2fcnx35(yr#-8b)2&*)+enl0!cdrl'
+SECRET_KEY = '0yk6uyKHDRq8I4htihuuE0P7a9j3wUL8bdCymc-Zn5ci171mWfK'
+
+SECURE_SSL_REDIRECT =  True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dantee5.pythonanywhere.com']
 
 
 # Application definition
@@ -113,6 +115,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -130,3 +135,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 AUTH_USER_MODEL = 'ecosite.Usuario'
+STATIC_ROOT = "/home/dantee5/ecosit/ecosite/static/"
