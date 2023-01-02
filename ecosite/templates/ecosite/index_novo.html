@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'ecosite/slick/slick.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'ecosite/slick/slick-theme.css' %}"/>
 
+
 {% endblock %}
 
 {% block body %}
@@ -79,10 +80,10 @@
 <div id="produtos" class="d-flex flex-wrap justify-content-left">
     {% for produto in produtos %}
         <div class="produto borda">
-            <img src="{{ produto.2 }}" class="imagem-prod"/>
+            <img src="{% static produto.2 %}" alt="imagem do produto {{ produto.2 }}" class="imagem-prod"/>
             <div class="texto-prod">
                 <div class="nome-prod">{{ produto.0 }}</div>
-                <div class="descricao-prod">{{produto.3}}</div>
+                <div class="descricao-prod">{{ produto.3 }}</div>
                 <div class="preco-prod">R&#x24; {{ produto.1 }}</div>
             </div>
         </div>
