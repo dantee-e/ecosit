@@ -20,7 +20,6 @@ def index_render(request, alert_logado):
         produtos.append([i.nome, i.preco, imag, i.descricao])
     if request.user.is_authenticated:
         return render(request, "ecosite/index_autenticado.html", {
-            
             "produtos": produtos,
             "message": 'Usuario autenticado',
             "recem_logado": alert_logado,

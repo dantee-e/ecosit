@@ -3,7 +3,7 @@ from . import views
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -15,4 +15,6 @@ urlpatterns = [
     path('logout', views.logout_view, name='logout'),
     path('criar-empresa', views.criar_empresa, name='criar_emp'),
     path('area-empresa', views.area_emp, name='area_emp'), 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+urlpatterns += staticfiles_urlpatterns()
